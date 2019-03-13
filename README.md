@@ -18,4 +18,23 @@ Pick an API that:
 
 You will likely need to sign up for an API key.
 
+## Intro spets
+1. Do DDD
+-search field
+-search button
+-example list item
+- NASA takes 100items per page
 
+2. TDD Template Literal Funciton
+3. Export makeHTML function
+4. make loadGallery function gallery-component.js
+
+5, TDD query functions
+    write filter to query
+    write page to query
+    read from query
+
+//change hash onsubmit
+//on hashchange update something
+//make-url function
+//update query function (assembly function)
