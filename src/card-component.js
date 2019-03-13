@@ -10,3 +10,19 @@ export function constructCard(item) {
     template.innerHTML = html;
     return template.content;
 }
+
+const cardList = document.getElementById('card-list');
+
+export default function loadGallery(items) {
+    clearGallery();
+    items.forEach(item => {
+        const dom = constructCard(item);
+        cardList.appendChild(dom);
+    });
+}
+
+function clearGallery() {
+    while(cardList.children.length > 0) {
+        cardList.lastElementChild.remove();
+    }
+}
