@@ -22,11 +22,11 @@ window.addEventListener('hashchange', () => {
         promptSection.classList.add('hidden');
         pagingSection.classList.remove('hidden');
         listSection.classList.remove('hidden');
-        // fetch(url)
-        //     .then(response => response.json())
-        //     .then(result => {
-        //         loadGallery(result.collection.items);
-        //         updatePagingInfo(result.collection.metadata);
-        //     });
+        fetch(url)
+            .then(response => response.json())
+            .then(result => {
+                loadGallery(result.collection.items);
+                updatePagingInfo(result.collection.metadata);
+            });
     }
 });

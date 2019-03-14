@@ -7,6 +7,9 @@ export default function makeSearchURL(searchOptions) {
     const url = new URL(BASE_URL);
     url.searchParams.set('q', searchOptions.searchTerm);
     url.searchParams.set('media_type', 'image');
+    if(searchOptions.startYear) {
+        url.searchParams.set('year_start', searchOptions.startYear);
+    }
     url.searchParams.set('page', searchOptions.page);
     return url.toString();
 }
