@@ -1,4 +1,4 @@
-import { transformSearchToHash } from './hash-query.js';
+import { transformSearchToHash } from '../api/hash-query.js';
 
 const searchForm = document.getElementById('search-form');
 const searchTermInput = document.getElementById('search');

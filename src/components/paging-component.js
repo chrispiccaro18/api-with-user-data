@@ -1,4 +1,4 @@
-import { transformPageToHash } from './hash-query.js';
+import { transformPageToHash } from '../api/hash-query.js';
 
 const nextButton = document.getElementById('next-button');
 const previousButton = document.getElementById('previous-button');
