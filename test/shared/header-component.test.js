@@ -1,5 +1,5 @@
 import user from '../../data/user.js';
-import { constructHeader } from '../../src/shared/header-component.js';
+import { constructHeader, constructProfile } from '../../src/shared/header-component.js';
 
 const test = QUnit.test;
 
@@ -18,19 +18,6 @@ test('make header', assert => {
     //assert
     assert.htmlEqual(result, expected);
 });
-
-function constructProfile(user) {
-    const html = /*html*/ `
-        <section id="user-display-section">
-            <img src="${user.photoURL}" alt="Avatar of ${user.displayName}">
-            <p>${user.displayName}</p>
-            <button id="signout-button">Sign Out</button>
-        </section>
-    `;
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content;
-}
 
 test('make profile header thing', assert => {
     //arrange
