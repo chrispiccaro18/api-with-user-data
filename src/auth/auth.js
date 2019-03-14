@@ -1,4 +1,4 @@
-import { auth } from '../firebase.js';
+import { auth, usersRef } from '../firebase.js';
 import loadHeader from '../shared/header-component.js';
 
 const options = {
@@ -16,4 +16,19 @@ ui.start('#firebaseui-auth-container', {
     ],
     signInSuccessUrl: './' + window.location.hash,
     credentialHelper: firebaseui.auth.CredentialHelper.NONE,
+    callbacks: {
+        signInSuccessWithAuthResult(authResult) {
+            const user = authResult.user;
+            usersRef.child(user.uid)
+                .set({
+                    uid: user.uid,
+                    displayName: user.displayName,
+                    photoURL: user.photoURL,
+                    email: user.email
+                });
+            return true;
+        }
+    }
+
 });
+

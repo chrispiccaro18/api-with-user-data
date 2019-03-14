@@ -3,10 +3,16 @@ const config = {
     authDomain: 'nasa-image-api-4cdae.firebaseapp.com',
     databaseURL: 'https://nasa-image-api-4cdae.firebaseio.com',
     projectId: 'nasa-image-api-4cdae',
-    storageBucket: '',
+    storageBucket: 'nasa-image-api-4cdae.appspot.com',
     messagingSenderId: '674897675897'
 };
 
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
+
+const db = firebase.database();
+
+export const usersRef = db.ref('users');
+
+export const favoritesByUserRef = db.ref('favorites-by-user');

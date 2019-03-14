@@ -44,8 +44,8 @@ You will likely need to sign up for an API key.
 //incorporate firebase backend
 //filtering?
 //default profile pic if nein
-
 //auth shennanigans (auth redirect)
-//users
+
+//users (db)
 //favorite pictures
 //year filter detail page?
