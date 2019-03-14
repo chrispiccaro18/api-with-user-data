@@ -19,9 +19,9 @@ window.addEventListener('hashchange', () => {
         listSection.classList.add('hidden');
         return;
     } else {
-        // promptSection.classList.add('hidden');
-        // pagingSection.classList.remove('hidden');
-        // listSection.classList.remove('hidden');
+        promptSection.classList.add('hidden');
+        pagingSection.classList.remove('hidden');
+        listSection.classList.remove('hidden');
         // fetch(url)
         //     .then(response => response.json())
         //     .then(result => {

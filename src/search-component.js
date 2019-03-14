@@ -6,12 +6,9 @@ const startYearInput = document.getElementById('start-year');
 
 const searchTermStartYear = searchForm.querySelectorAll('input');
 
-const searchTerm = searchTermStartYear[0].value;
-const startYear = searchTermStartYear[1].value;
-
-
 searchForm.addEventListener('submit', event => {
-    console.log(searchTermStartYear[0].value, typeof searchTermStartYear[1].value);
+    const searchTerm = searchTermStartYear[0].value;
+    const startYear = searchTermStartYear[1].value;
     event.preventDefault();
     const queryOptions = {
         searchTerm: searchTerm,
