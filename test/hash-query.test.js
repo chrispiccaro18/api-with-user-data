@@ -19,14 +19,11 @@ test('writing searchterms and first page to a hash', assert => {
 
 test('writing page to a hash', assert => {
     //arrange
-    const queryOptions = {
-        searchTerm: 'mars',
-        page: 2
-    };
+    const page = 2;
     const existingQuery = 'search=mars&page=1';
     const expected = 'search=mars&page=2';
     //act
-    const result = transformPageToHash(existingQuery, queryOptions);  
+    const result = transformPageToHash(existingQuery, page);  
     //assert
     assert.equal(result, expected);
 });

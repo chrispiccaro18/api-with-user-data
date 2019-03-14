@@ -39,6 +39,10 @@ You will likely need to sign up for an API key.
 //make-url function
 //update query function (assembly function)
 //paging
+//make sure have a search term
+//filtering?
+//year filter detail page?
+
 
 //incorporate firebase backend
 //auth shennanigans

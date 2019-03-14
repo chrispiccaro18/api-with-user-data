@@ -5,9 +5,9 @@ export function transformSearchToHash(existingQuery, queryOptions) {
     return searchParams.toString();
 }
 
-export function transformPageToHash(existingQuery, queryOptions) {
+export function transformPageToHash(existingQuery, page) {
     const searchParams = new URLSearchParams(existingQuery);
-    searchParams.set('page', queryOptions.page);
+    searchParams.set('page', page);
     return searchParams.toString();
 }
 
