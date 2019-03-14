@@ -38,3 +38,9 @@ You will likely need to sign up for an API key.
 //on hashchange update something
 //make-url function
 //update query function (assembly function)
+//paging
+
+//incorporate firebase backend
+//auth shennanigans
+//users
+//favorite pictures
