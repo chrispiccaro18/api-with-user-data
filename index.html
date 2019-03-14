@@ -11,18 +11,25 @@
 <body>
     <header>
         <h1>HELLA SPACE</h1>
-
     </header>
     <main>
         <form id="search-form">
             <input id="search" type="text">
            <button>search</button> 
         </form>
-        <button id="previous-button">&lt; previous</button>
-        page <span id="current-page">1</span> 
-        of <span id="total-pages">100</span>
-        <button id="next-button">next &gt;</button>
-        <ul id="card-list"></ul>
+        <section id="prompt-section">
+            <p>PICK SOME STUFF</p>
+        </section>
+        <section class="hidden" id="paging-section">
+            <button id="previous-button">&lt; previous</button>
+            page <span id="current-page"></span> 
+            of <span id="total-pages"></span>
+            <button id="next-button">next &gt;</button>
+        </section>
+        <section class="hidden" id="list-section">
+            <ul id="card-list"></ul>
+        </section>
+        
     </main>
     <script type="module" src="src/index.js"></script>
 </body>

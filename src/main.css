@@ -2,6 +2,10 @@ body {
     background-color: greenyellow;
 }
 
+.hidden {
+    display: none;    
+}
+
 ul {
     display: flex;
     flex-flow: wrap;
