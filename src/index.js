@@ -4,10 +4,12 @@ import makeSearchURL from './api/make-search-url.js';
 import { readHashQuery } from './api/hash-query.js';
 import { updatePagingInfo } from './components/paging-component.js';
 import { auth } from './firebase.js';
+import loadHeader from './shared/header-component.js';
 
 auth.onAuthStateChanged(user => {
-    console.log(JSON.stringify(user));
+    loadHeader(user);
 });
+
 
 const promptSection = document.getElementById('prompt-section');
 const pagingSection = document.getElementById('paging-section');
