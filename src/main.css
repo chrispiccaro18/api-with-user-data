@@ -40,4 +40,20 @@ li img {
 
 }
 
+#user-display-section {
+    display: flex;
+    border: 2px dotted hotpink;
+    width: 43%;
+    padding: -5%;
+    height: 60px;
+}
 
+#user-display-section img {
+    width: auto;
+    height: 100%;
+    border-radius: 100%;
+}
+
+#signout-button {
+    align-self: center;
+}

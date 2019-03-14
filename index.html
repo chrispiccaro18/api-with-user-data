@@ -4,13 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase-database.js"></script>
+
     <link rel="stylesheet" href="src/main.css">
     <title>HELLA SPACE</title>
+    
 </head>
 
 <body>
     <header>
         <h1>HELLA SPACE</h1>
+        <section id="user-display-section">
+            <img src="https://lh6.googleusercontent.com/-B34fgdKTs9E/AAAAAAAAAAI/AAAAAAAAAKY/VLtajeGSgQQ/photo.jpg" alt="Avatar of Chris Piccaro">
+            <p>Chris Piccaro</p>
+            <button id="signout-button">Sign Out</button>
+        </section>
     </header>
     <main>
         <form id="search-form">
