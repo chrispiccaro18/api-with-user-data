@@ -1,5 +1,5 @@
-import item from '../data/item.js';
-import { constructCard } from '../src/card-component.js';
+import item from '../../data/item.js';
+import { constructCard } from '../../src/components/card-component.js';
 
 const test = QUnit.test;
 

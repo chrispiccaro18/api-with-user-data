@@ -1,5 +1,4 @@
 import './html-equal.js';
-
-import './card-component.test.js';
-import './hash-query.test.js';
-import './make-search-url.test.js';
+import './components/card-component.test.js';
+import './api/hash-query.test.js';
+import './api/make-search-url.test.js';

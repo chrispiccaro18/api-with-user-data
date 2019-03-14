@@ -1,4 +1,4 @@
-import makeSearchURL from '../src/make-search-url.js';
+import makeSearchURL from '../../src/api/make-search-url.js';
 
 const test = QUnit.test;
 QUnit.module('make url for fetch');

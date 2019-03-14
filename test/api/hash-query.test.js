@@ -1,6 +1,6 @@
 const test = QUnit.test;
 
-import { transformPageToHash, readHashQuery, transformSearchToHash } from '../src/hash-query.js';
+import { transformPageToHash, readHashQuery, transformSearchToHash } from '../../src/api/hash-query.js';
 
 QUnit.module('hash function test');
 
