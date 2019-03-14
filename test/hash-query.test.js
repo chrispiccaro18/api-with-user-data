@@ -9,6 +9,12 @@ function transformSearchToHash(existingQuery, queryOptions) {
     return searchParams.toString();
 }
 
+function transformPageToHash(existingQuery, queryOptions) {
+    const searchParams = new URLSearchParams(existingQuery);
+    searchParams.set('page', queryOptions.page);
+    return searchParams.toString();
+}
+
 test('writing searchterms and first page to a hash', assert => {
     //arrange
     const queryOptions = {
@@ -22,12 +28,6 @@ test('writing searchterms and first page to a hash', assert => {
     assert.equal(result, expected);
 });
 
-function transformPageToHash(existingQuery, queryOptions) {
-    const searchParams = new URLSearchParams(existingQuery);
-    searchParams.set('page', queryOptions.page);
-    return searchParams.toString();
-}
-
 test('writing page to a hash', assert => {
     //arrange
     const queryOptions = {
@@ -40,4 +40,26 @@ test('writing page to a hash', assert => {
     const result = transformPageToHash(existingQuery, queryOptions);  
     //assert
     assert.equal(result, expected);
+});
+
+function readHashQuery(existingQuery) {
+    const searchParams = new URLSearchParams(existingQuery);
+    return {
+        searchTerm: searchParams.get('search'),
+        page: Number(searchParams.get('page'))
+    };
+}
+
+test('reading from hash to queryOptions', assert => {
+    //arrange
+    const existingQuery = 'search=mars&page=2';
+    const expected = {
+        searchTerm: 'mars',
+        page: 2
+    };
+    //act
+    const result = readHashQuery(existingQuery);
+
+    //assert
+    assert.deepEqual(result, expected);
 });
