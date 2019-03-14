@@ -6,16 +6,23 @@ import { updatePagingInfo } from './components/paging-component.js';
 import { auth } from './firebase.js';
 import loadHeader from './shared/header-component.js';
 
-auth.onAuthStateChanged(user => {
-    loadHeader(user);
-});
-
-
 const promptSection = document.getElementById('prompt-section');
 const pagingSection = document.getElementById('paging-section');
 const listSection = document.getElementById('list-section');
 
-window.addEventListener('hashchange', () => {
+auth.onAuthStateChanged(user => {
+    if(!user) {
+        window.location = 'auth.html';
+        return;
+    }
+    loadHeader(user);
+});
+
+loadQuery();
+
+window.addEventListener('hashchange', loadQuery);
+
+function loadQuery() {
     const existingQuery = window.location.hash.slice(1);
     const searchOptions = readHashQuery(existingQuery);
     updateSearchTerm(searchOptions);
@@ -36,4 +43,4 @@ window.addEventListener('hashchange', () => {
                 updatePagingInfo(result.collection.metadata);
             });
     }
-});
+}
