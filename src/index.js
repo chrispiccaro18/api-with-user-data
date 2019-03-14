@@ -11,7 +11,7 @@ const listSection = document.getElementById('list-section');
 window.addEventListener('hashchange', () => {
     const existingQuery = window.location.hash.slice(1);
     const searchOptions = readHashQuery(existingQuery);
-    updateSearchTerm(searchOptions.searchTerm);
+    updateSearchTerm(searchOptions);
     const url = makeSearchURL(searchOptions);
     if(!url) {
         promptSection.classList.remove('hidden');
@@ -19,14 +19,14 @@ window.addEventListener('hashchange', () => {
         listSection.classList.add('hidden');
         return;
     } else {
-        promptSection.classList.add('hidden');
-        pagingSection.classList.remove('hidden');
-        listSection.classList.remove('hidden');
-        fetch(url)
-            .then(response => response.json())
-            .then(result => {
-                loadGallery(result.collection.items);
-                updatePagingInfo(result.collection.metadata);
-            });
+        // promptSection.classList.add('hidden');
+        // pagingSection.classList.remove('hidden');
+        // listSection.classList.remove('hidden');
+        // fetch(url)
+        //     .then(response => response.json())
+        //     .then(result => {
+        //         loadGallery(result.collection.items);
+        //         updatePagingInfo(result.collection.metadata);
+        //     });
     }
 });
