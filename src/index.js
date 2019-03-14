@@ -9,6 +9,9 @@ window.addEventListener('hashchange', () => {
     const searchOptions = readHashQuery(existingQuery);
     updateSearchTerm(searchOptions.searchTerm);
     const url = makeSearchURL(searchOptions);
+    if(!url) {
+        return;
+    }
     fetch(url)
         .then(response => response.json())
         .then(result => {

@@ -15,3 +15,16 @@ test('make search url for fetch test', assert => {
     //asert
     assert.equal(result, expected);
 });
+
+test('return empty string if no searchTerm', assert => {
+    //arrange
+    const expected = '';
+    const searchOptions = {
+        searchTerm: '',
+        page: 3
+    };
+    //act
+    const result = makeSearchURL(searchOptions);
+    //asert
+    assert.equal(result, expected);
+});

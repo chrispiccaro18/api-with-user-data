@@ -12,8 +12,6 @@ let currentPageCount = 1;
 
 export function updatePagingInfo(metadata) {
     const totalPageCount = Math.ceil(parseInt(metadata.total_hits) / 100);
-    console.log(metadata);
-    console.log(totalPageCount +' is totalpagecount');
     currentPage.textContent = currentPageCount;
     totalPage.textContent = totalPageCount;
     nextButton.disabled = currentPageCount === totalPageCount;
