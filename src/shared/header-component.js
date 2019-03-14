@@ -12,9 +12,10 @@ export function constructHeader() {
 }
 
 export function constructProfile(user) {
+    const avatar = user.photoURL || './assets/avatar-placeholder.png';
     const html = /*html*/ `
         <section id="user-display-section">
-            <img src="${user.photoURL}" alt="Avatar of ${user.displayName}">
+            <img src="${avatar}" alt="Avatar of ${user.displayName}">
             <p>${user.displayName}</p>
             <button id="signout-button">Sign Out</button>
         </section>

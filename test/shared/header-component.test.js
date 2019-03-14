@@ -33,3 +33,23 @@ test('make profile header thing', assert => {
     //assert
     assert.htmlEqual(result, expected);
 });
+
+test('user has no photo url', assert => {
+    //arrange
+    const user2 = {
+        'uid':'105235896145754556417', 
+        'displayName':'Chris Piccaro',
+        'email':'chrispiccaro18@gmail.com'
+    };
+    const expected = /*html*/ `
+        <section id="user-display-section">
+            <img src="./assets/avatar-placeholder.png" alt="Avatar of Chris Piccaro">
+            <p>Chris Piccaro</p>
+            <button id="signout-button">Sign Out</button>
+        </section>
+    `;
+    //act
+    const result = constructProfile(user2);
+    //assert
+    assert.htmlEqual(result, expected);
+});

@@ -41,12 +41,11 @@ You will likely need to sign up for an API key.
 //paging
 //make sure have a search term
 //hidden stuff (css classes, js func)
-
-//filtering?
-//year filter detail page?
-
-
 //incorporate firebase backend
+//filtering?
+
+//default profile pic if nein
 //auth shennanigans
 //users
 //favorite pictures
+//year filter detail page?
