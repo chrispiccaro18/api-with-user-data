@@ -4,9 +4,9 @@ export function constructCard(item) {
     const html = /*html*/ `
         <li>
             <span id="favorite-bell">🔔</span>
-            <h2>${item.data[0].title}</h2>
-            <img src="${item.links[0].href}" alt="Image of ${item.data[0].title}">
-            <p>${item.data[0].description}</p>
+            <h2>${item.title}</h2>
+            <img src="${item.href}" alt="Image of ${item.title}">
+            <p>${item.description}</p>
         </li>
     `;
     const template = document.createElement('template');
@@ -19,7 +19,11 @@ const cardList = document.getElementById('card-list');
 export default function loadGallery(items) {
     clearGallery();
     items.forEach(item => {
-        const dom = constructCard(item);
+        let apiData = item;
+        if(item.data[0]) {
+            apiData = item.data[0];
+        }
+        const dom = constructCard(apiData, item.links[0].href);
         const favoriteBell = dom.querySelector('#favorite-bell');
 
         const userId = auth.currentUser.uid;

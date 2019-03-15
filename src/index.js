@@ -39,6 +39,7 @@ function loadQuery() {
         fetch(url)
             .then(response => response.json())
             .then(result => {
+                console.log(result.collection.items);
                 loadGallery(result.collection.items);
                 updatePagingInfo(result.collection.metadata);
             });

@@ -1,6 +1,7 @@
 import loadHeader from '../shared/header-component.js';
 import { auth, favoritesByUserRef } from '../firebase.js';
 import loadGallery from '../components/card-component.js';
+import convertObjectToArray from '../shared/convert-object-to-array.js';
 
 loadHeader();
 
@@ -11,6 +12,7 @@ auth.onAuthStateChanged(user => {
     userFavoritesRef.once('value')
         .then(snapshot => {
             const favoriteImagesAsObject = snapshot.val();
-            console.log(favoriteImagesAsObject);
+            const favoriteImages = convertObjectToArray(favoriteImagesAsObject);
+            loadGallery(favoriteImages);
         });
 });
