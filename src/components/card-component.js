@@ -1,12 +1,13 @@
 import { auth, favoritesByUserRef } from '../firebase.js';
+import { normalizeApiData } from '../api/normalize-api-data.js';
 
 export function constructCard(item) {
     const html = /*html*/ `
         <li>
             <span id="favorite-bell">🔔</span>
-            <h2>${item.data[0].title}</h2>
-            <img src="${item.links[0].href}" alt="Image of ${item.data[0].title}">
-            <p>${item.data[0].description}</p>
+            <h2>${item.title}</h2>
+            <img src="${item.href}" alt="Image of ${item.title}">
+            <p>${item.description}</p>
         </li>
     `;
     const template = document.createElement('template');
@@ -19,16 +20,16 @@ const cardList = document.getElementById('card-list');
 export default function loadGallery(items) {
     clearGallery();
     items.forEach(item => {
-        let apiData = item;
-        if(item.data[0]) {
-            apiData = item.data[0];
+        let itemData = item;
+        if(item.data) {
+            itemData = normalizeApiData(item);
         }
-        const dom = constructCard(apiData, item.links[0].href);
+        const dom = constructCard(itemData);
         const favoriteBell = dom.querySelector('#favorite-bell');
 
         const userId = auth.currentUser.uid;
         const userFavoritesRef = favoritesByUserRef.child(userId);
-        const userFavoriteImagesRef = userFavoritesRef.child(item.data[0].nasa_id);
+        const userFavoriteImagesRef = userFavoritesRef.child(itemData.nasa_id);
         userFavoriteImagesRef.once('value')
             .then(snapshot => {
                 const value = snapshot.val();
@@ -57,9 +58,11 @@ export default function loadGallery(items) {
                     }
                     else {
                         userFavoriteImagesRef.set({
-                            id: item.data[0].nasa_id,
-                            title: item.data[0].title,
-                            date: item.data[0].date_created
+                            id: itemData.nasa_id,
+                            title: itemData.title,
+                            date: itemData.date_created,
+                            href: itemData.href,
+                            description: itemData.description
                         });
                         addFavorite();
                     }
