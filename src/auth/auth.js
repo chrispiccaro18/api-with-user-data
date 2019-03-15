@@ -29,6 +29,4 @@ ui.start('#firebaseui-auth-container', {
             return true;
         }
     }
-
 });
-

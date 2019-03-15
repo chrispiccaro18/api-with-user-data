@@ -55,7 +55,6 @@ export default function loadGallery(items) {
                         userFavoriteImagesRef.set({
                             id: item.data[0].nasa_id,
                             title: item.data[0].title,
-                            // photographer: item.data[0].photographer,
                             date: item.data[0].date_created
                         });
                         addFavorite();

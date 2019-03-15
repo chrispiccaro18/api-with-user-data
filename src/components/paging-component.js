@@ -5,9 +5,6 @@ const previousButton = document.getElementById('previous-button');
 const currentPage = document.getElementById('current-page');
 const totalPage = document.getElementById('total-pages');
 
-//we want url to bw source of truth
-//have buttons update url 
-
 let currentPageCount = 1;
 
 export function updatePagingInfo(metadata) {
@@ -33,4 +30,3 @@ function updateQuery() {
     const newQuery = transformPageToHash(existingQuery, currentPageCount);
     window.location.hash = newQuery;
 }
-
