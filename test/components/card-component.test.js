@@ -9,6 +9,7 @@ test('make li for card list', assert => {
     // arrange
     const expected = /*html*/ `
         <li>
+            <span id="favorite-bell">🔔</span>
             <h2>Orbital ATK CRS-7 Liftoff</h2>
             <img src="https://images-assets.nasa.gov/image/KSC-20170418-PH_AWG06_0015/KSC-20170418-PH_AWG06_0015~thumb.jpg"
             alt="Image of Orbital ATK CRS-7 Liftoff">
