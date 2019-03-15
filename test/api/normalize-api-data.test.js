@@ -7,23 +7,22 @@ QUnit.module('Converting API data to flattened structure');
 test('given api data return single array', assert => {
     //arrange
     const apiData = {
-        "href": "sdfsdfds",
-        "data": [
+        'data': [
             {
-                "photographer": 'person',
-                "tile": 'title of image'
+                'photographer': 'person',
+                'tile': 'title of image'
             }
         ],
-        "links": [
+        'links': [
             {
-                "href": 'src'
+                'href': 'src'
             }
         ]
     };
     const expected = {
-        "photographer": 'person',
-        "tile": 'title of image',
-        "href": 'src'
+        'photographer': 'person',
+        'tile': 'title of image',
+        'href': 'src'
     };
     //act
     const result = normalizeApiData(apiData);
