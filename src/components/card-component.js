@@ -24,8 +24,44 @@ export default function loadGallery(items) {
 
         const userId = auth.currentUser.uid;
         const userFavoritesRef = favoritesByUserRef.child(userId);
-        const userFavoriteImagesRef = favoritesByUserRef.child(item.data[0].nasa_id);
+        const userFavoriteImagesRef = userFavoritesRef.child(item.data[0].nasa_id);
+        userFavoriteImagesRef.once('value')
+            .then(snapshot => {
+                const value = snapshot.val();
+                let isFavorite = false;
+                if(value) {
+                    addFavorite();
+                }
+                else {
+                    removeFavorite();
+                }
+                function addFavorite() {
+                    isFavorite = true;
+                    favoriteBell.textContent = '␇';
+                    favoriteBell.classList.add('favorite');
+                }
+                function removeFavorite() {
+                    isFavorite = false;
+                    favoriteBell.textContent = '🔔';
+                    favoriteBell.classList.remove('favorite');
+                }
 
+                favoriteBell.addEventListener('click', () => {
+                    if(isFavorite) {
+                        userFavoriteImagesRef.remove();
+                        removeFavorite();
+                    }
+                    else {
+                        userFavoriteImagesRef.set({
+                            id: item.data[0].nasa_id,
+                            title: item.data[0].title,
+                            // photographer: item.data[0].photographer,
+                            date: item.data[0].date_created
+                        });
+                        addFavorite();
+                    }
+                });
+            });
         cardList.appendChild(dom);
     });
 }
