@@ -11,6 +11,6 @@ auth.onAuthStateChanged(user => {
     userFavoritesRef.once('value')
         .then(snapshot => {
             const favoriteImagesAsObject = snapshot.val();
-            
+            console.log(favoriteImagesAsObject);
         });
 });
