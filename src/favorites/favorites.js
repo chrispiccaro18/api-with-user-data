@@ -8,7 +8,6 @@ loadHeader();
 auth.onAuthStateChanged(user => {
     const userId = user.uid;
     const userFavoritesRef = favoritesByUserRef.child(userId);
-
     userFavoritesRef.once('value')
         .then(snapshot => {
             const favoriteImagesAsObject = snapshot.val();

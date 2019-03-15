@@ -21,15 +21,19 @@ export default function loadGallery(items) {
     clearGallery();
     items.forEach(item => {
         let itemData = item;
+        console.log(item);
         if(item.data) {
             itemData = normalizeApiData(item);
+            console.log(itemData)
         }
         const dom = constructCard(itemData);
         const favoriteBell = dom.querySelector('#favorite-bell');
 
         const userId = auth.currentUser.uid;
         const userFavoritesRef = favoritesByUserRef.child(userId);
+        console.log(itemData);
         const userFavoriteImagesRef = userFavoritesRef.child(itemData.nasa_id);
+        console.log(userFavoriteImagesRef);
         userFavoriteImagesRef.once('value')
             .then(snapshot => {
                 const value = snapshot.val();
@@ -62,7 +66,8 @@ export default function loadGallery(items) {
                             title: itemData.title,
                             date: itemData.date_created,
                             href: itemData.href,
-                            description: itemData.description
+                            description: itemData.description,
+                            nasa_id: itemData.nasa_id
                         });
                         addFavorite();
                     }
